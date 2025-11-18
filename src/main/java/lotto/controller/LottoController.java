@@ -41,6 +41,7 @@ public class LottoController {
     public void getWinningStatics() {
         lottoCommandService.setWinningStatics();
         Map<RankReward, Integer> winningStatics = lottoQueryService.getWinningStatics();
+        Map<Integer, Integer> winningStatics = lottoQueryService.getWinningStatics();
         outputView.winStatistics(winningStatics);
     }
 
