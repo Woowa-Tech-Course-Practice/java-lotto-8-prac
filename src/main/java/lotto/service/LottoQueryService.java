@@ -19,7 +19,7 @@ public class LottoQueryService {
         return lottos.getLottos();
     }
 
-    public Map<Integer, Integer> getWinningStatics() {
+    public Map<RankReward, Integer> getWinningStatics() {
         WinningRecord winningRecord = WinningRecord.getInstance();
         return winningRecord.getRecords();
     }

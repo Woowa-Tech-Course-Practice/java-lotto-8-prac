@@ -1,6 +1,7 @@
 package lotto.view;
 
 import lotto.domain.Lotto;
+import lotto.domain.RankReward;
 
 import java.util.List;
 import java.util.Map;
@@ -21,7 +22,7 @@ public class OutputView {
         }
     }
 
-    public void winStatistics(Map<Integer,Integer> winners) {
+    public void winStatistics(Map<RankReward,Integer> winners) {
         System.out.println(WINNER_STATISTICS.getMessage());
         System.out.println(FIFTH_STATISTICS.getMessage(FIFTH_LOTTO_PRICE,winners.getOrDefault(FIFTH, LOTTO_NUMBER_COUNT_NONE)));
         System.out.println(FOURTH_STATISTICS.getMessage(FOURTH_LOTTO_PRICE ,winners.getOrDefault(FOURTH, LOTTO_NUMBER_COUNT_NONE)));
