@@ -25,9 +25,13 @@ public class WinningRecord {
 
     public void addRecord(int correctCount, boolean bonus) {
         validateRecord(correctCount);
+        try{
+            RankReward rank = RankReward.from(correctCount, bonus);
+            records.put(rank, records.getOrDefault(rank, 0) + 1);
+        }
+        catch(IllegalArgumentException e){
 
-        RankReward rank = RankReward.from(correctCount, bonus);
-        records.put(rank, records.getOrDefault(rank, 0) + 1);
+        }
     }
 
     private void validateRecord(int number) {
