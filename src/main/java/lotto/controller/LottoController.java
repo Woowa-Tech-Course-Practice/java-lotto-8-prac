@@ -1,6 +1,7 @@
 package lotto.controller;
 
 import lotto.domain.Lotto;
+import lotto.domain.RankReward;
 import lotto.exception.InputHandler;
 import lotto.service.LottoCommandService;
 import lotto.service.LottoQueryService;
@@ -39,7 +40,7 @@ public class LottoController {
 
     public void getWinningStatics() {
         lottoCommandService.setWinningStatics();
-        Map<Integer, Integer> winningStatics = lottoQueryService.getWinningStatics();
+        Map<RankReward, Integer> winningStatics = lottoQueryService.getWinningStatics();
         outputView.winStatistics(winningStatics);
     }
 
