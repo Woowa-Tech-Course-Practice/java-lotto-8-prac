@@ -37,8 +37,16 @@ public class LottoRank {
 
             // TODO -> 준형 : Rank enum에 findByCount() 만들어서 호출하는 쪽으로 변경
             // TODO -> 현빈 : Rank enum 구조 변경(description 추가) 및 기존 정의한 matchCount 활용으로 변경
-            return RankReward.findByCount(matchCount,bonusMatch);
+            return findByCount(matchCount,bonusMatch);
+        }
+
+        private LottoRank.Rank findByCount(long matchCount, boolean bonusMatch){
+            if (matchCount == FIRST.matchCount) return Rank.FIRST;
+            if (matchCount == SECOND.matchCount && bonusMatch) return Rank.SECOND;
+            if (matchCount == THIRD.matchCount) return Rank.THIRD;
+            if (matchCount == FOURTH.matchCount) return Rank.FOURTH;
+            if (matchCount == FIFTH.matchCount) return Rank.FIFTH;
+            return Rank.NONE;
         }
     }
-
 }
