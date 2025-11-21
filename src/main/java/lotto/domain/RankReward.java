@@ -28,4 +28,13 @@ public enum RankReward {
         }
         throw new IllegalArgumentException(LottoErrorCode.RANK_OUT_OF_RANGE.getMessage());
     }
+
+    public static LottoRank.Rank findByCount(long matchCount, boolean bonusMatch){
+        if (matchCount == 6) return LottoRank.Rank.FIRST;
+        if (matchCount == 5 && bonusMatch) return LottoRank.Rank.SECOND;
+        if (matchCount == 5) return LottoRank.Rank.THIRD;
+        if (matchCount == 4) return LottoRank.Rank.FOURTH;
+        if (matchCount == 3) return LottoRank.Rank.FIFTH;
+        return LottoRank.Rank.NONE;
+    }
 }
