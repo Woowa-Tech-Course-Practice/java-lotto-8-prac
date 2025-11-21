@@ -7,20 +7,22 @@ public class LottoRank {
     // TODO 준형 : 위치 이동하기 (현재 package -> lotto.domain.util)을
     // TODO 준형 : LottoCalculator 아닌 다른 이름(원하는대로) 변경하고 다른 패키지로 이동
     public enum Rank {
-        FIRST(6, false),
-        SECOND(5, true),
-        THIRD(5, false),
-        FOURTH(4, false),
-        FIFTH(3, false),
-        NONE(0, false)
+        FIRST(6, false, "1등"),
+        SECOND(5, true, "2등"),
+        THIRD(5, false, "3등"),
+        FOURTH(4, false, "4등"),
+        FIFTH(3, false, "5등"),
+        NONE(0, false, "꽝")
         ;
 
         private final int matchCount;
         private final boolean bonus;
+        private final String description;
 
-        Rank(int matchCount, boolean bonus) {
+        Rank(int matchCount, boolean bonus, String description) {
             this.matchCount = matchCount;
             this.bonus = bonus;
+            this.description = description;
         }
 
         public Rank calculateRank(WinningLotto winningLotto, int bonusNumber, Lotto lotto) {
