@@ -23,14 +23,15 @@ public class LottoRank {
             this.bonus = bonus;
         }
 
-        public Rank calculateRank(List<Integer> winningNumbers, int bonusNumber, List<Integer> userNumbers) {
+        public Rank calculateRank(WinningLotto winningLotto, int bonusNumber, Lotto lotto) {
+            List<Integer> userNumbers = lotto.getNumbers();
+            List<Integer> winningNumbers = winningLotto.getWinnerNumbers();
             // TODO -> 준형 : stream으로 고치기
             // TODO -> 현빈 : for문을 유지하되, 더 깔끔하게 + List<Integer>가 아닌 만들어놓은 객체 사용하기
             long matchCount = 0;
             matchCount = userNumbers.stream().filter(num->winningNumbers.contains(num)).count();
 
             boolean bonusMatch = userNumbers.contains(bonusNumber);
-
 
             // TODO -> 준형 : Rank enum에 findByCount() 만들어서 호출하는 쪽으로 변경
             // TODO -> 현빈 : Rank enum 구조 변경(description 추가) 및 기존 정의한 matchCount 활용으로 변경
